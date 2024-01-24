@@ -182,7 +182,7 @@ class NNetwork {
                 for (let i = 0; i < zh3.length; i++) {
                     let yt = yTrain[i];
                     let h = zh3[i].h;
-                    let derivativeCost = 2 * (h - yt);
+                    let derivativeCost = 2 * (1/yTrain.length) * (h - yt);
                     // console.log(h, ' - ', yt, ' = ', derivativeCost);
                     
                     derivativeCosts.push(derivativeCost);
@@ -221,10 +221,18 @@ class NNetwork {
                             // console.log(k, ' ', i, ' ', j)
                             let zh3Temp = zh3[k];
                             let dc = derivativeCosts[k];
-                            updatedWeight += dc * derivativeSigmoid(zh3Temp.z) * this.ws3[k][i] * derivativeSigmoid(zh2Temp.z) * zh1Temp.h;
+                            updatedWeight += dc * 
+                                derivativeSigmoid(zh3Temp.z) * 
+                                this.ws3[k][i] * 
+                                derivativeSigmoid(zh2Temp.z) * 
+                                zh1Temp.h;
                             
                             if (j == 0) {
-                                updatedBias += dc * derivativeSigmoid(zh3Temp.z) * this.ws3[k][i] * derivativeSigmoid(zh2Temp.z) * 1;
+                                updatedBias += dc * 
+                                    derivativeSigmoid(zh3Temp.z) * 
+                                    this.ws3[k][i] * 
+                                    derivativeSigmoid(zh2Temp.z) * 
+                                    1;
                             }
                         }
 
@@ -252,10 +260,22 @@ class NNetwork {
                                 // console.log(k, ' ', j, ' ', i, ' ', m);
                                 let zh2Temp = zh2[m];
                                 
-                                updatedWeight += dc * derivativeSigmoid(zh3Temp.z) * this.ws3[k][m] * derivativeSigmoid(zh2Temp.z) * this.ws2[m][i] * derivativeSigmoid(zh1Temp.z) * x;
+                                updatedWeight += dc * 
+                                    derivativeSigmoid(zh3Temp.z) * 
+                                    this.ws3[k][m] * 
+                                    derivativeSigmoid(zh2Temp.z) * 
+                                    this.ws2[m][i] * 
+                                    derivativeSigmoid(zh1Temp.z) * 
+                                    x;
 
                                 if (j == 0) {
-                                    updatedBias += dc * derivativeSigmoid(zh3Temp.z) * this.ws3[k][m] * derivativeSigmoid(zh2Temp.z) * this.ws2[m][i] * derivativeSigmoid(zh1Temp.z) * 1;
+                                    updatedBias += dc * 
+                                        derivativeSigmoid(zh3Temp.z) * 
+                                        this.ws3[k][m] * 
+                                        derivativeSigmoid(zh2Temp.z) * 
+                                        this.ws2[m][i] * 
+                                        derivativeSigmoid(zh1Temp.z) * 
+                                        1;
                                 }
                             }
                         }
@@ -373,8 +393,8 @@ function main() {
             let labelStr = row[0];
             let dataStr = row[1];
 
-            let label = labelStr.split(',').map((v) => Number(v));
-            let data = dataStr.split(',').map((v) => Number(v));
+            let label = labelStr.split(',').map((v) => parseFloat(v));
+            let data = dataStr.split(',').map((v) => parseFloat(v));
 
             labels.push(label);
             datas.push(data);
@@ -384,7 +404,7 @@ function main() {
             const n = new NNetwork(1000, 0.01);
             // n.train(datas, labels);
             n.train(datas.slice(0,10), labels.slice(0,10));
-            // n.train(datas.slice(0, 10000), labels.slice(0, 10000));
+            // n.train(datas.slice(0, 1000), labels.slice(0, 1000));
             console.log(labels[4]);
             console.log(n.forward(datas[4]));
 
@@ -394,9 +414,9 @@ function main() {
 
             // n.loadModel('model.json');
 
-            // console.log(labels[2]);
+            // console.log(labels[0]);
 
-            // let r = n.forward(datas[2]);
+            // let r = n.forward(datas[0]);
             // console.log(r)
 
             // console.log(argmax(r));
