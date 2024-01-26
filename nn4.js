@@ -86,7 +86,7 @@ class NNetwork {
         this.bs2 = [];
         this.bs3 = [];
 
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 100; i++) {
             let ws = [];
             for (let j = 0; j < 784; j++) {
                 let w = Math.random();
@@ -98,9 +98,9 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 50; i++) {
             let ws = [];
-            for (let j = 0; j < 20; j++) {
+            for (let j = 0; j < 100; j++) {
                 let w = Math.random();
                 w = w / Math.pow(20, 0.5);
                 ws.push(w);
@@ -112,7 +112,7 @@ class NNetwork {
 
         for (let i = 0; i < 10; i++) {
             let ws = [];
-            for (let j = 0; j < 20; j++) {
+            for (let j = 0; j < 50; j++) {
                 let w = Math.random();
                 w = w / Math.pow(20, 0.5);
                 ws.push(w);
@@ -122,12 +122,12 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 100; i++) {
             let b = 0;
             this.bs1.push(b);
         }
 
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 50; i++) {
             let b = 0;
             this.bs2.push(b);
         }
@@ -418,7 +418,7 @@ function main() {
 
 
         }).on('finish', () => {
-            const n = new NNetwork(10, 0.07);
+            const n = new NNetwork(10, 0.1);
 
             // n.train(datas, labels);
             // // n.train(datas.slice(0,1), labels.slice(0,1));
@@ -446,6 +446,3 @@ function main() {
 
 // https://theneuralblog.com/forward-pass-backpropagation-example/
 main();
-
-
-

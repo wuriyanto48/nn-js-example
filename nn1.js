@@ -86,11 +86,10 @@ class NNetwork {
         this.bs2 = [];
         this.bs3 = [];
 
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 3; i++) {
             let ws = [];
-            for (let j = 0; j < 784; j++) {
+            for (let j = 0; j < 2; j++) {
                 let w = Math.random();
-                w = w / Math.pow(784, 0.5);
                 ws.push(w);
             }
 
@@ -98,11 +97,10 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 3; i++) {
             let ws = [];
-            for (let j = 0; j < 20; j++) {
+            for (let j = 0; j < 3; j++) {
                 let w = Math.random();
-                w = w / Math.pow(20, 0.5);
                 ws.push(w);
             }
 
@@ -110,11 +108,10 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 3; i++) {
             let ws = [];
-            for (let j = 0; j < 20; j++) {
+            for (let j = 0; j < 3; j++) {
                 let w = Math.random();
-                w = w / Math.pow(20, 0.5);
                 ws.push(w);
             }
 
@@ -122,17 +119,17 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 3; i++) {
             let b = 0;
             this.bs1.push(b);
         }
 
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 3; i++) {
             let b = 0;
             this.bs2.push(b);
         }
 
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 3; i++) {
             let b = 0;
             this.bs3.push(b);
         }
@@ -184,13 +181,10 @@ class NNetwork {
                     zh3.push({z: z, h: h});
                 }
 
-                // if (e % 10 == 0) {
-                //     let cost = mse(zh3, yTrain);
-                //     console.log('mean squared error: ', cost);
-                // }
-
-                let cost = mse(zh3, yTrain);
-                console.log('mean squared error: ', cost);
+                if (e % 10 == 0) {
+                    let cost = mse(zh3, yTrain);
+                    console.log('mean squared error: ', cost);
+                }
 
                 // backward propagation
                 let derivativeCosts = [];
@@ -401,10 +395,9 @@ class NNetwork {
 }
 
 function main() {
-
     let labels = [];
     let datas = [];
-    fs.createReadStream('mnist.csv')
+    fs.createReadStream('points.csv')
         .pipe(parse({delimiter: ','}))
         .on('data', (row) => {
             let labelStr = row[0];
@@ -418,34 +411,26 @@ function main() {
 
 
         }).on('finish', () => {
-            const n = new NNetwork(10, 0.07);
+            const n = new NNetwork(1000, 0.1);
 
-            // n.train(datas, labels);
-            // // n.train(datas.slice(0,1), labels.slice(0,1));
-            n.train(datas.slice(0, 1000), labels.slice(0, 1000));
+            n.train(datas, labels);
+            console.log(n.forward([0.1, 0.2]));
 
-            console.log(labels[2]);
-            console.log(n.forward(datas[2]));
-
-            n.saveModel();
+            // n.saveModel();
 
             // ---------------------------------------------
 
             // n.loadModel('model.json');
 
-            // console.log(labels[6]);
+            // console.log(labels[90]);
 
-            // let r = n.forward(datas[6]);
+            // let r = n.forward(datas[90]);
             // console.log(r)
 
             // console.log(argmax(r));
 
         });
-
 }
 
 // https://theneuralblog.com/forward-pass-backpropagation-example/
 main();
-
-
-
