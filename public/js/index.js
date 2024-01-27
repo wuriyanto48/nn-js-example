@@ -58,9 +58,24 @@ canvas.addEventListener('mousemove', function(event) {
 function resize() {
     ctxTemp.drawImage(canvas, 0, 0, tempCanvas.width, tempCanvas.height)
     const dataURI = tempCanvas.toDataURL();
+    console.log(dataURI);
 
     // Do something with the result, like overwrite original
     img.src = dataURI;
+
+    var imageData = ctxTemp.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+    var pixelData = imageData.data;
+    console.log(imageData)
+
+    var color = new Float32Array(tempCanvas.width * tempCanvas.height);
+
+    var j = 0;
+    for(let i = 0; i < pixelData.length; i = i + 4) {
+        color[j] = Math.max(pixelData[i], pixelData[i+1], pixelData[i+2])/255.0;
+        j++;
+    }
+
+    console.log(color.toString());
 }
 
 buttonProcess.addEventListener('click', function(event) {
