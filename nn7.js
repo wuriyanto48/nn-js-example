@@ -100,7 +100,7 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 60; i++) {
+        for (let i = 0; i < 100; i++) {
             let ws = [];
             for (let j = 0; j < 100; j++) {
                 let w = Math.random();
@@ -112,11 +112,11 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 100; i++) {
             let ws = [];
-            for (let j = 0; j < 60; j++) {
+            for (let j = 0; j < 100; j++) {
                 let w = Math.random();
-                w = w / Math.pow(60, 0.5);
+                w = w / Math.pow(100, 0.5);
                 ws.push(w);
             }
 
@@ -126,9 +126,9 @@ class NNetwork {
 
         for (let i = 0; i < 10; i++) {
             let ws = [];
-            for (let j = 0; j < 20; j++) {
+            for (let j = 0; j < 100; j++) {
                 let w = Math.random();
-                w = w / Math.pow(20, 0.5);
+                w = w / Math.pow(100, 0.5);
                 ws.push(w);
             }
 
@@ -141,12 +141,12 @@ class NNetwork {
             this.bs1.push(b);
         }
 
-        for (let i = 0; i < 60; i++) {
+        for (let i = 0; i < 100; i++) {
             let b = 0;
             this.bs2.push(b);
         }
 
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 100; i++) {
             let b = 0;
             this.bs3.push(b);
         }
@@ -373,6 +373,7 @@ class NNetwork {
                                     }
                                     
                                 }
+
                             }
                         }
                         
@@ -519,16 +520,16 @@ function main() {
 
 
         }).on('finish', () => {
-            const n = new NNetwork(3, 0.3);
+            const n = new NNetwork(10, 0.6);
 
             // n.train(datas, labels);
             // n.train(datas.slice(0,1), labels.slice(0,1));
-            n.train(datas.slice(0, 1000), labels.slice(0, 1000));
+            n.train(datas.slice(0, 10), labels.slice(0, 10));
 
             console.log(labels[0]);
             console.log(n.forward(datas[0]));
 
-            n.saveModel();
+            // n.saveModel();
 
             // ---------------------------------------------
 
