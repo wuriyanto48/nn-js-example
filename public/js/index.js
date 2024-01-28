@@ -64,6 +64,38 @@ canvas.addEventListener('mousemove', function(event) {
     }
 });
 
+// mobile device
+canvas.addEventListener('touchstart', function(event) {
+    if (event.target == canvas) {
+        event.preventDefault();
+    }
+
+    drag = true;
+}, false);
+
+canvas.addEventListener('touchend', function(event) {
+    if (event.target == canvas) {
+        event.preventDefault();
+    }
+
+    drag = false;
+}, false);
+
+canvas.addEventListener('touchmove', function(event) {
+    if (event.target == canvas) {
+        event.preventDefault();
+    }
+
+    var touch = event.touches[0];
+
+    var x = touch.clientX;
+    var y = touch.clientY;
+
+    if (drag) {
+        drawCircle(x, y);
+    }
+}, false);
+
 function predict() {
     ctxTemp.drawImage(canvas, 0, 0, tempCanvas.width, tempCanvas.height);
 
