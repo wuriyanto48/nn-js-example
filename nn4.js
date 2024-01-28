@@ -88,9 +88,9 @@ class NNetwork {
 
         for (let i = 0; i < 20; i++) {
             let ws = [];
-            for (let j = 0; j < 196; j++) {
+            for (let j = 0; j < 784; j++) {
                 let w = Math.random();
-                w = w / Math.pow(196, 0.5);
+                w = w / Math.pow(784, 0.5);
                 ws.push(w);
             }
 
@@ -110,7 +110,7 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 5; i++) {
             let ws = [];
             for (let j = 0; j < 20; j++) {
                 let w = Math.random();
@@ -123,17 +123,17 @@ class NNetwork {
         }
 
         for (let i = 0; i < 20; i++) {
-            let b = 0;
+            let b = Math.random();;
             this.bs1.push(b);
         }
 
         for (let i = 0; i < 20; i++) {
-            let b = 0;
+            let b = Math.random();;
             this.bs2.push(b);
         }
 
-        for (let i = 0; i < 10; i++) {
-            let b = 0;
+        for (let i = 0; i < 5; i++) {
+            let b = Math.random();;
             this.bs3.push(b);
         }
     }
@@ -417,11 +417,9 @@ function main() {
 
 
         }).on('finish', () => {
-            const n = new NNetwork(10, 0.6);
+            const n = new NNetwork(3, 0.05);
 
-            // n.train(datas, labels);
-            // // n.train(datas.slice(0,1), labels.slice(0,1));
-            n.train(datas.slice(0, 1000), labels.slice(0, 1000));
+            n.train(datas, labels);
 
             console.log(labels[2]);
             console.log(n.forward(datas[2]));
@@ -432,9 +430,9 @@ function main() {
 
             // n.loadModel('model.json');
 
-            // console.log(labels[5]);
+            // console.log(labels[55]);
 
-            // let r = n.forward(datas[5]);
+            // let r = n.forward(datas[55]);
             // console.log(r)
 
             // console.log(argmax(r));
