@@ -58,14 +58,12 @@ canvas.addEventListener('mousemove', function(event) {
 function resize() {
     ctxTemp.drawImage(canvas, 0, 0, tempCanvas.width, tempCanvas.height)
     const dataURI = tempCanvas.toDataURL();
-    console.log(dataURI);
 
     // Do something with the result, like overwrite original
     img.src = dataURI;
 
     var imageData = ctxTemp.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
     var pixelData = imageData.data;
-    console.log(imageData)
 
     var color = new Float32Array(tempCanvas.width * tempCanvas.height);
 
