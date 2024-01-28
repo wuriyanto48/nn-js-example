@@ -802,5 +802,5 @@ function main() {
     console.log(n.forward([-20, -10]));
 }
 
-// https://theneuralblog.com/forward-pass-backpropagation-example/
+// execute train
 main();

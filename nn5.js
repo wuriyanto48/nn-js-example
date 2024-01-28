@@ -545,5 +545,5 @@ function main() {
 
 }
 
-// https://theneuralblog.com/forward-pass-backpropagation-example/
+// execute train
 main();
