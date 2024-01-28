@@ -57,8 +57,8 @@ function mse(outputs, yTrains) {
     return c;
 }
 
-function calculateDerivativeCost(output, yHat) {
-    return 2 * (1/2) * (yHat - output) * -1;
+function calculateDerivativeCost(output, yTrue) {
+    return 2 * (1/2) * (yTrue - output) * -1;
 }
 
 function argmax(arrs) {

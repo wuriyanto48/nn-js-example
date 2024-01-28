@@ -19,20 +19,20 @@ function derivativeSigmoid(x) {
     return sigmoid(x) * (1 - sigmoid(x));
 }
 
-function calculateCost(outputs, yHat) {
+function calculateCost(outputs, yTrue) {
     let c = 0;
     for (let i = 0; i < outputs.length; i++) {
         let o = outputs[i];
-        c += Math.pow(o - yHat, 2);
+        c += Math.pow(o - yTrue, 2);
     }
     return (1 / outputs.length) * c;
 }
 
-function calculateDerivativeCost(outputs, yHat) {
+function calculateDerivativeCost(outputs, yTrue) {
     let c = 0;
     for (let i = 0; i < outputs.length; i++) {
         let o = outputs[i];
-        c += 2 * (o - yHat);
+        c += 2 * (o - yTrue);
     }
     return (1 / outputs.length) * c;
 }
