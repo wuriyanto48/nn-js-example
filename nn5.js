@@ -88,11 +88,11 @@ class NNetwork {
         this.bs3 = [];
         this.bs4 = [];
 
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 50; i++) {
             let ws = [];
-            for (let j = 0; j < 784; j++) {
+            for (let j = 0; j < 49; j++) {
                 let w = Math.random();
-                w = w / Math.pow(784, 0.5);
+                w = w / Math.pow(49, 0.5);
                 ws.push(w);
             }
 
@@ -100,11 +100,11 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 60; i++) {
+        for (let i = 0; i < 50; i++) {
             let ws = [];
-            for (let j = 0; j < 100; j++) {
+            for (let j = 0; j < 50; j++) {
                 let w = Math.random();
-                w = w / Math.pow(100, 0.5);
+                w = w / Math.pow(50, 0.5);
                 ws.push(w);
             }
 
@@ -114,7 +114,7 @@ class NNetwork {
 
         for (let i = 0; i < 20; i++) {
             let ws = [];
-            for (let j = 0; j < 60; j++) {
+            for (let j = 0; j < 50; j++) {
                 let w = Math.random();
                 w = w / Math.pow(60, 0.5);
                 ws.push(w);
@@ -136,12 +136,12 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 50; i++) {
             let b = 0;
             this.bs1.push(b);
         }
 
-        for (let i = 0; i < 60; i++) {
+        for (let i = 0; i < 50; i++) {
             let b = 0;
             this.bs2.push(b);
         }
@@ -519,7 +519,7 @@ function main() {
 
 
         }).on('finish', () => {
-            const n = new NNetwork(3, 0.3);
+            const n = new NNetwork(1000, 0.1);
 
             // n.train(datas, labels);
             // n.train(datas.slice(0,1), labels.slice(0,1));

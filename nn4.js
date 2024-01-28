@@ -51,13 +51,13 @@ function mse(outputs, yTrains) {
     for (let i = 0; i < outputs.length; i++) {
         let y = yTrains[i];
         let o = outputs[i];
-        c += (1/2) * Math.pow(o.h - y, 2);
+        c += (1/2) * Math.pow(y - o.h, 2);
     }
 
     return c;
 }
 
-function calculateDerivativeCost(output, yHat) {
+function calculateDerivativeCost(output, yHat, yTrains) {
     return 2 * (1/2) * (yHat - output) * -1;
 }
 
@@ -86,11 +86,11 @@ class NNetwork {
         this.bs2 = [];
         this.bs3 = [];
 
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 20; i++) {
             let ws = [];
-            for (let j = 0; j < 784; j++) {
+            for (let j = 0; j < 196; j++) {
                 let w = Math.random();
-                w = w / Math.pow(784, 0.5);
+                w = w / Math.pow(196, 0.5);
                 ws.push(w);
             }
 
@@ -98,9 +98,9 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 20; i++) {
             let ws = [];
-            for (let j = 0; j < 100; j++) {
+            for (let j = 0; j < 20; j++) {
                 let w = Math.random();
                 w = w / Math.pow(20, 0.5);
                 ws.push(w);
@@ -112,7 +112,7 @@ class NNetwork {
 
         for (let i = 0; i < 10; i++) {
             let ws = [];
-            for (let j = 0; j < 50; j++) {
+            for (let j = 0; j < 20; j++) {
                 let w = Math.random();
                 w = w / Math.pow(20, 0.5);
                 ws.push(w);
@@ -122,12 +122,12 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 20; i++) {
             let b = 0;
             this.bs1.push(b);
         }
 
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 20; i++) {
             let b = 0;
             this.bs2.push(b);
         }
@@ -197,7 +197,7 @@ class NNetwork {
                 for (let i = 0; i < zh3.length; i++) {
                     let yt = yTrain[i];
                     let h = zh3[i].h;
-                    let derivativeCost = calculateDerivativeCost(h, yt);
+                    let derivativeCost = calculateDerivativeCost(h, yt, yTrain);
                     // console.log(h, ' - ', yt, ' = ', derivativeCost);
                     
                     derivativeCosts.push(derivativeCost);
@@ -213,11 +213,10 @@ class NNetwork {
                         let zh2Temp = zh2[k];
                         // console.log(i, ' ', k);
                         let updatedWeight = dc * derivativeSigmoid(zh.z) * zh2Temp.h;
+                        this.ws3[i][k] = this.ws3[i][k] - this.learningRate * updatedWeight;
                         if (k == 0) {
                             updatedBias = dc * derivativeSigmoid(zh.z) * 1;
                         }
-
-                        this.ws3[i][k] = this.ws3[i][k] - this.learningRate * updatedWeight;
                     }
                     // console.log('--');
 
@@ -418,7 +417,7 @@ function main() {
 
 
         }).on('finish', () => {
-            const n = new NNetwork(10, 0.1);
+            const n = new NNetwork(10, 0.6);
 
             // n.train(datas, labels);
             // // n.train(datas.slice(0,1), labels.slice(0,1));
@@ -433,9 +432,9 @@ function main() {
 
             // n.loadModel('model.json');
 
-            // console.log(labels[6]);
+            // console.log(labels[5]);
 
-            // let r = n.forward(datas[6]);
+            // let r = n.forward(datas[5]);
             // console.log(r)
 
             // console.log(argmax(r));
