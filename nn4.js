@@ -110,7 +110,7 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 7; i++) {
             let ws = [];
             for (let j = 0; j < 20; j++) {
                 let w = Math.random();
@@ -132,7 +132,7 @@ class NNetwork {
             this.bs2.push(b);
         }
 
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 7; i++) {
             let b = Math.random();;
             this.bs3.push(b);
         }
@@ -186,11 +186,11 @@ class NNetwork {
 
                 // if (e % 10 == 0) {
                 //     let cost = mse(zh3, yTrain);
-                //     console.log('mean squared error: ', cost);
+                //     console.log('epochs: ', e, ' | mean squared error: ', cost);
                 // }
 
                 let cost = mse(zh3, yTrain);
-                console.log('mean squared error: ', cost);
+                console.log('epochs: ', e, ' | mean squared error: ', cost);
 
                 // backward propagation
                 let derivativeCosts = [];
