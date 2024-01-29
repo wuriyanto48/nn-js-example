@@ -123,17 +123,17 @@ class NNetwork {
         }
 
         for (let i = 0; i < 20; i++) {
-            let b = Math.random();;
+            let b = Math.random();
             this.bs1.push(b);
         }
 
         for (let i = 0; i < 20; i++) {
-            let b = Math.random();;
+            let b = Math.random();
             this.bs2.push(b);
         }
 
         for (let i = 0; i < 7; i++) {
-            let b = Math.random();;
+            let b = Math.random();
             this.bs3.push(b);
         }
     }
