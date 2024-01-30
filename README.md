@@ -29,12 +29,12 @@ https://wuriyanto48.github.io/nnjs/
 [<img src="./docsID/chain_rule_2.jpg" width="100%">](https://github.com/wuriyanto48)
 <br/><br/>
 
-#### Derivative dari fungsi Sigmoid part 1
-[<img src="./docsID/derivative_sigmoid_1.jpg" width="100%">](https://github.com/wuriyanto48)
+#### Linear Algebra part 1
+[<img src="./docsID/linear_algebra_1.jpg" width="100%">](https://github.com/wuriyanto48)
 <br/><br/>
 
-#### Derivative dari fungsi Sigmoid part 2
-[<img src="./docsID/derivative_sigmoid_2.jpg" width="100%">](https://github.com/wuriyanto48)
+#### Linear Algebra part 2
+[<img src="./docsID/linear_algebra_2.jpg" width="100%">](https://github.com/wuriyanto48)
 <br/><br/>
 
 #### Forward Propagation
@@ -43,6 +43,14 @@ https://wuriyanto48.github.io/nnjs/
 
 #### Gradient Descent
 [<img src="./docsID/backpropagation_1.jpg" width="100%">](https://github.com/wuriyanto48)
+<br/><br/>
+
+#### Derivative dari fungsi Sigmoid part 1
+[<img src="./docsID/derivative_sigmoid_1.jpg" width="100%">](https://github.com/wuriyanto48)
+<br/><br/>
+
+#### Derivative dari fungsi Sigmoid part 2
+[<img src="./docsID/derivative_sigmoid_2.jpg" width="100%">](https://github.com/wuriyanto48)
 <br/><br/>
 
 #### Backward Propagation part 1
