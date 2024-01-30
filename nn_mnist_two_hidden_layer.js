@@ -46,7 +46,7 @@ function derivativeSigmoid(x) {
     return sigmoid(x) * (1 - sigmoid(x));
 }
 
-function mse(outputs, yTrains) {
+function loss(outputs, yTrains) {
     let c = 0;
     for (let i = 0; i < outputs.length; i++) {
         let y = yTrains[i];
@@ -185,12 +185,12 @@ class NNetwork {
                 }
 
                 // if (e % 10 == 0) {
-                //     let cost = mse(zh3, yTrain);
-                //     console.log('epochs: ', e, ' | mean squared error: ', cost);
+                //     let cost = loss(zh3, yTrain);
+                //     console.log('epochs: ', e, ' | loss: ', cost);
                 // }
 
-                let cost = mse(zh3, yTrain);
-                console.log('epochs: ', e, ' | mean squared error: ', cost);
+                let cost = loss(zh3, yTrain);
+                console.log('epochs: ', e, ' | loss: ', cost);
 
                 // backward propagation
                 let derivativeCosts = [];

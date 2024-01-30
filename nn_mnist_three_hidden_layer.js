@@ -46,7 +46,7 @@ function derivativeSigmoid(x) {
     return sigmoid(x) * (1 - sigmoid(x));
 }
 
-function mse(outputs, yTrains) {
+function loss(outputs, yTrains) {
     let c = 0;
     for (let i = 0; i < outputs.length; i++) {
         let y = yTrains[i];
@@ -88,7 +88,7 @@ class NNetwork {
         this.bs3 = [];
         this.bs4 = [];
 
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 128; i++) {
             let ws = [];
             for (let j = 0; j < 784; j++) {
                 let w = Math.random();
@@ -100,11 +100,11 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 128; i++) {
             let ws = [];
-            for (let j = 0; j < 50; j++) {
+            for (let j = 0; j < 128; j++) {
                 let w = Math.random();
-                w = w / Math.pow(50, 0.5);
+                w = w / Math.pow(128, 0.5);
                 ws.push(w);
             }
 
@@ -114,9 +114,9 @@ class NNetwork {
 
         for (let i = 0; i < 20; i++) {
             let ws = [];
-            for (let j = 0; j < 50; j++) {
+            for (let j = 0; j < 128; j++) {
                 let w = Math.random();
-                w = w / Math.pow(50, 0.5);
+                w = w / Math.pow(128, 0.5);
                 ws.push(w);
             }
 
@@ -136,12 +136,12 @@ class NNetwork {
             
         }
 
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 128; i++) {
             let b = Math.random();
             this.bs1.push(b);
         }
 
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 128; i++) {
             let b = Math.random();
             this.bs2.push(b);
         }
@@ -215,12 +215,12 @@ class NNetwork {
                 }
 
                 // if (e % 10 == 0) {
-                //     let cost = mse(zh4, yTrain);
-                //     console.log('mean squared error: ', cost);
+                //     let cost = loss(zh4, yTrain);
+                //     console.log('epochs: ', e, ' | loss: ', cost);
                 // }
 
-                let cost = mse(zh4, yTrain);
-                console.log('mean squared error: ', cost);
+                let cost = loss(zh4, yTrain);
+                console.log('epochs: ', e, ' | loss: ', cost);
 
                 // backward propagation
                 let derivativeCosts = [];
