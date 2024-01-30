@@ -2,6 +2,9 @@
 
 https://wuriyanto48.github.io/nnjs/
 
+### Download Dataset
+https://drive.google.com/file/d/1t_4XPqk4p0-DBRTQV7BUSjK-kxKOKCte/view?usp=sharing
+
 ### Run Training
 ```shell
 node nn_mnist_two_hidden_layer.js
