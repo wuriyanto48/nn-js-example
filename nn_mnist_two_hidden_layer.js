@@ -417,7 +417,7 @@ function main() {
 
 
         }).on('finish', () => {
-            const n = new NNetwork(3, 0.08);
+            const n = new NNetwork(5, 0.09);
 
             n.train(datas, labels);
 
