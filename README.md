@@ -56,6 +56,10 @@ https://wuriyanto48.github.io/nnjs/
 [<img src="./docsID/derivative_sigmoid_2.jpg" width="100%">](https://github.com/wuriyanto48)
 <br/><br/>
 
+#### Derivative dari fungsi Loss
+[<img src="./docsID/derivative_loss_function.jpeg" width="100%">](https://github.com/wuriyanto48)
+<br/><br/>
+
 #### Backward Propagation part 1
 [<img src="./docsID/backpropagation_2.jpg" width="100%">](https://github.com/wuriyanto48)
 <br/><br/>
