@@ -40,6 +40,8 @@ https://wuriyanto48.github.io/nnjs/
 [<img src="./docsID/linear_algebra_2.jpg" width="100%">](https://github.com/wuriyanto48)
 <br/><br/>
 
+### Forward Propagation
+
 #### Forward Propagation
 [<img src="./docsID/forward_propagation.jpeg" width="100%">](https://github.com/wuriyanto48)
 <br/><br/>
@@ -47,6 +49,8 @@ https://wuriyanto48.github.io/nnjs/
 #### Gradient Descent
 [<img src="./docsID/backpropagation_1.jpg" width="100%">](https://github.com/wuriyanto48)
 <br/><br/>
+
+### Backward Propagation
 
 #### Derivative dari fungsi Sigmoid part 1
 [<img src="./docsID/derivative_sigmoid_1.jpg" width="100%">](https://github.com/wuriyanto48)
