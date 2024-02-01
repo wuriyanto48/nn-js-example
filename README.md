@@ -49,7 +49,11 @@ https://wuriyanto48.github.io/nnjs/
 ### Backward Propagation
 
 #### Gradient Descent
-[<img src="./docsID/backpropagation_1.jpg" width="100%">](https://github.com/wuriyanto48)
+[<img src="./docsID/backpropagation_gradient_descent_1.jpg" width="100%">](https://github.com/wuriyanto48)
+<br/><br/>
+
+#### Gradient Descent contoh pada Linear Regression
+[<img src="./docsID/backpropagation_gradient_descent_2.jpeg" width="100%">](https://github.com/wuriyanto48)
 <br/><br/>
 
 #### Derivative dari fungsi Sigmoid part 1
@@ -65,9 +69,9 @@ https://wuriyanto48.github.io/nnjs/
 <br/><br/>
 
 #### Backward Propagation part 1
-[<img src="./docsID/backpropagation_2.jpg" width="100%">](https://github.com/wuriyanto48)
+[<img src="./docsID/backpropagation_1.jpg" width="100%">](https://github.com/wuriyanto48)
 <br/><br/>
 
 #### Backward Propagation part 2
-[<img src="./docsID/backpropagation_3.jpg" width="100%">](https://github.com/wuriyanto48)
+[<img src="./docsID/backpropagation_2.jpg" width="100%">](https://github.com/wuriyanto48)
 <br/><br/>
