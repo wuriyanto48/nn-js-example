@@ -148,41 +148,7 @@ class NNetwork {
                 let yTrain = yTrains[d];
                 // forward propagation
 
-                // first hidden layer
-                let zh1 = [];
-                for (let i = 0; i < this.ws1.length; i++) {
-                    let ws = this.ws1[i];
-                    let b = this.bs1[i];
-
-                    let z = linear(xTrain, ws, b);
-                    let h = sigmoid(z);
-
-                    zh1.push({z: z, h: h});
-                }
-
-                // second hidden layer
-                let zh2 = [];
-                for (let i = 0; i < this.ws2.length; i++) {
-                    let ws = this.ws2[i];
-                    let b = this.bs2[i];
-
-                    let z = linearOnObj(zh1, ws, b);
-                    let h = sigmoid(z);
-
-                    zh2.push({z: z, h: h});
-                }
-
-                // output layer
-                let zh3 = [];
-                for (let i = 0; i < this.ws3.length; i++) {
-                    let ws = this.ws3[i];
-                    let b = this.bs3[i];
-
-                    let z = linearOnObj(zh2, ws, b);
-                    let h = sigmoid(z);
-
-                    zh3.push({z: z, h: h});
-                }
+                let [zh1, zh2, zh3] = this.forward(xTrain);
 
                 // if (e % 10 == 0) {
                 //     let cost = loss(zh3, yTrain);
@@ -344,7 +310,7 @@ class NNetwork {
             zh3.push({z: z, h: h});
         }
 
-        return zh3;
+        return [zh1, zh2, zh3];
     }
 
     saveModel(name) {
@@ -422,7 +388,8 @@ function main() {
             n.train(datas, labels);
 
             console.log(labels[2]);
-            console.log(n.forward(datas[2]));
+            const layers = n.forward(datas[2]);
+            console.log(layers[layers.length-1]);
 
             n.saveModel();
 
@@ -432,7 +399,8 @@ function main() {
 
             // console.log(labels[55]);
 
-            // let r = n.forward(datas[55]);
+            // let layers = n.forward(datas[55]);
+            // let r = layers[layers.length-1];
             // console.log(r)
 
             // console.log(argmax(r));
