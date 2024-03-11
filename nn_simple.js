@@ -34,6 +34,19 @@ function calculateDerivativeLoss(output, yTrue) {
     return 2 * (1/2) * (yTrue - output) * -1;
 }
 
+function argmax(arrs) {
+    let currIndex = 0;
+    let arr = arrs[0];
+    for (let i = 0; i < arrs.length; i++) {
+        if (arrs[i] > arr) {
+            currIndex = i;
+            arr = arrs[i];
+        }
+    }
+
+    return currIndex;
+}
+
 class NNetwork {
     constructor(epochs, learningRate) {
         this.epochs = epochs;
@@ -567,19 +580,19 @@ class NNetwork {
 
 function main() {
     const xTrains = [
-        [-2, -1], // tidak masuk
-        [25, 6], // masuk
-        [17, 9], // masuk
-        [36, 8], // masuk
-        [-15, -6], // tidak masuk
-        [10, 15], // masuk
-        [1, 1], // tidak masuk
-        [-66, -9], // tidak masuk,
-        [1, -1], // tidak masuk
-        [1, 2], // tidak masuk
-        [10, 7], // masuk
-        [-10, -5], // tidak masuk,
-        [18, 9], // masuk
+        [-2, -1], // tidak lulus
+        [25, 6], // lulus
+        [17, 9], // lulus
+        [36, 8], // lulus
+        [-15, -6], // tidak lulus
+        [10, 15], // lulus
+        [1, 1], // tidak lulus
+        [-66, -9], // tidak lulus,
+        [1, -1], // tidak lulus
+        [1, 2], // tidak lulus
+        [10, 7], // lulus
+        [-10, -5], // tidak lulus,
+        [18, 9], // lulus
     ];
 
     const yTrains = [
@@ -600,7 +613,12 @@ function main() {
 
     const n = new NNetwork(1000, 0.01);
     n.train(xTrains, yTrains);
-    console.log(n.forward([112, 22]));
+
+    const labels = ['Lulus', 'Tidak Lulus'];
+    const r = n.forward([-2, -10]);
+    console.log(r);
+    console.log(argmax(r));
+    console.log(labels[argmax(r)]);
 }
 
 // execute train
