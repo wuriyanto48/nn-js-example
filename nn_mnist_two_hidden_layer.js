@@ -383,7 +383,7 @@ function main() {
 
 
         }).on('finish', () => {
-            const n = new NNetwork(5, 0.09);
+            const n = new NNetwork(6, 0.09);
 
             n.train(datas, labels);
 
